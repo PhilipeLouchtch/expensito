@@ -10,7 +10,7 @@ public class EuroParseException extends Exception
 	public static EuroParseException dueToNotMatchingPattern(String inputString)
 	{
 		return new EuroParseException(
-				String.format("Could parse [%s] into Euro, does not match pattern", inputString)
+				String.format("Couldn't parse [%s] into Euro, does not match pattern", inputString)
 		);
 	}
 
