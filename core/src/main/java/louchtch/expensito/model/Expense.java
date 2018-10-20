@@ -1,16 +1,16 @@
 package louchtch.expensito.model;
 
-import louchtch.expensito.model.money.FiatMoney;
+import louchtch.expensito.model.money.Numeraire;
 import louchtch.expensito.model.time.TimeMoment;
 
 public class Expense
 {
-	private FiatMoney sum;
+	private Numeraire sum;
 	private ExpenseDescription description;
 	private TimeMoment expenseHappened;
 	private TimeMoment expenseCreated;
 
-	public FiatMoney sum()
+	public Numeraire sum()
 	{
 		return sum;
 	}

@@ -21,10 +21,13 @@ sourceCompatibility = 10
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 
 dependencies {
+    compile 'com.github.PhilipeLouchtch:plouchtch-lib-java:fb50165'
+
     compile('org.springframework.boot:spring-boot-starter')
     runtime('org.springframework.boot:spring-boot-devtools')
     testCompile('org.springframework.boot:spring-boot-starter-test')
