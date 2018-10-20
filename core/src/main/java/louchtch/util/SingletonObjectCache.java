@@ -1,6 +1,4 @@
-package louchtch.expensito.louchtch.util;
-
-import louchtch.expensito.model.Tag;
+package louchtch.util;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
