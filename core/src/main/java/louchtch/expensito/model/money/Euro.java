@@ -1,5 +1,6 @@
 package louchtch.expensito.model.money;
 
+import louchtch.util.NotImplementedException;
 import net.coolicer.assertion.Assert;
 
 import java.util.Objects;
@@ -8,7 +9,8 @@ import java.util.regex.Pattern;
 
 public class Euro implements Numeraire
 {
-	private final int cents;
+	private final static EuroSign euroSign = new EuroSign();
+	private final Integer cents;
 
 	private Euro(int cents)
 	{
@@ -18,19 +20,49 @@ public class Euro implements Numeraire
 	@Override
 	public String asString()
 	{
-		return null;
+		String euros;
+		String centsOnly;
+
+		String allCentsAsString = cents.toString();
+		int length = allCentsAsString.length();
+		switch (length)
+		{
+			case 0:
+				euros = "0";
+				centsOnly = "0";
+				break;
+			case 1:
+			case 2:
+				euros = "0";
+				centsOnly = allCentsAsString;
+				break;
+			default:
+				euros = String.valueOf(this.cents / 100);
+				centsOnly = allCentsAsString.substring(length-2, length);
+				break;
+		}
+
+		return euroSign.asChar()
+				+ euros
+				+ ","
+				+ centsOnly;
 	}
 
 	@Override
 	public Numeraire add(Numeraire other)
 	{
-		return null;
+		// TODO: do conversion between numeraires
+		if (other instanceof Euro) {
+			return new Euro(this.cents + ((Euro) other).cents);
+		}
+
+		throw NotImplementedException.functionality("conversion between numeraires");
 	}
 
 	@Override
 	public Numeraire substract(Numeraire other)
 	{
-		return null;
+		return this.add(other.asNegative());
 	}
 
 	@Override
@@ -39,6 +71,7 @@ public class Euro implements Numeraire
 		return new Euro(0 - cents);
 	}
 
+	// TODO: extract into some kind of 2-decimal-fiat shared implementation
 	private static Pattern euroPattern = Pattern.compile("^€?[ ]*(\\d+([,.]\\d+)?)[ ]*$");
 	public static Euro parseFrom(String string) throws EuroParseException
 	{
@@ -69,6 +102,7 @@ public class Euro implements Numeraire
 					break;
 				default:
 					cents = Integer.parseInt(centsUnparsed.substring(0, 2));
+					break;
 			}
 		}
 
@@ -87,12 +121,22 @@ public class Euro implements Numeraire
 			return false;
 		}
 		Euro euro = (Euro) o;
-		return cents == euro.cents;
+		return cents.equals(euro.cents);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return Objects.hash('€', cents);
+		return Objects.hash(euroSign.asChar(), cents);
+	}
+
+	private final static class EuroSign
+	{
+		final static char sign = '€';
+
+		public char asChar()
+		{
+			return sign;
+		}
 	}
 }
