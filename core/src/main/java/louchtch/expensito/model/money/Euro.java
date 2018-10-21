@@ -33,6 +33,12 @@ public class Euro implements Numeraire
 		return null;
 	}
 
+	@Override
+	public Numeraire asNegative()
+	{
+		return new Euro(0 - cents);
+	}
+
 	private static Pattern euroPattern = Pattern.compile("^€?[ ]*(\\d+([,.]\\d+)?)[ ]*$");
 	public static Euro parseFrom(String string) throws EuroParseException
 	{
