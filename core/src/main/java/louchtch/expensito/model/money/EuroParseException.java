@@ -1,20 +1,20 @@
 package louchtch.expensito.model.money;
 
-public class EuroParseException extends Exception
+class EuroParseException extends Exception
 {
 	private EuroParseException(String message)
 	{
 		super(message);
 	}
 
-	public static EuroParseException dueToNotMatchingPattern(String inputString)
+	static EuroParseException dueToNotMatchingPattern(String inputString)
 	{
 		return new EuroParseException(
 				String.format("Couldn't parse [%s] into Euro, does not match pattern", inputString)
 		);
 	}
 
-	public static EuroParseException dueToErrorDuringMatching()
+	static EuroParseException dueToErrorDuringMatching()
 	{
 		// TODO: improve
 		return new EuroParseException("There was an error during parsing the string value");
