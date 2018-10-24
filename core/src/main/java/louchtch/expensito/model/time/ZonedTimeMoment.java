@@ -15,14 +15,14 @@ public class ZonedTimeMoment implements TimeMoment
 	@Override
 	public int compareTo(TimeMoment other)
 	{
-		Long otherMilis = other.asUnixMilisUtc();
-		Long thisMilis = this.asUnixMilisUtc();
+		Long otherMilis = other.asSecondsFromEpoch();
+		Long thisMilis = this.asSecondsFromEpoch();
 
 		return thisMilis.compareTo(otherMilis);
 	}
 
 	@Override
-	public Long asUnixMilisUtc()
+	public Long asSecondsFromEpoch()
 	{
 		return zonedDateTime.withZoneSameInstant(ZoneOffset.UTC).toEpochSecond();
 	}
