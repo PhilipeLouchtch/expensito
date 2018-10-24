@@ -1,5 +1,6 @@
 package louchtch.expensito.model.time;
 
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 public class ZonedTimeMoment implements TimeMoment
@@ -15,6 +16,14 @@ public class ZonedTimeMoment implements TimeMoment
 	public int compareTo(TimeMoment other)
 	{
 		Long otherMilis = other.asUnixMilisUtc();
-		zonedDateTime.
+		Long thisMilis = this.asUnixMilisUtc();
+
+		return thisMilis.compareTo(otherMilis);
+	}
+
+	@Override
+	public Long asUnixMilisUtc()
+	{
+		return zonedDateTime.withZoneSameInstant(ZoneOffset.UTC).toEpochSecond();
 	}
 }
