@@ -1,5 +1,6 @@
 package louchtch.expensito.model.money;
 
+import louchtch.expensito.model.money.model.EuroSign;
 import louchtch.util.NotImplementedException;
 import net.coolicer.assertion.Assert;
 
@@ -42,7 +43,7 @@ public class Euro implements Numeraire
 				break;
 		}
 
-		return euroSign.asChar()
+		return euroSign.asString()
 				+ euros
 				+ ","
 				+ centsOnly;
@@ -71,7 +72,7 @@ public class Euro implements Numeraire
 		return new Euro(0 - cents);
 	}
 
-	// TODO: extract into some kind of 2-decimal-fiat shared implementation
+	// TODO: extract into some kind of 2-decimal-fiat shared logic once more than one supported Numeraire impl
 	private static Pattern euroPattern = Pattern.compile("^€?[ ]*(\\d+([,.]\\d+)?)[ ]*$");
 	public static Euro parseFrom(String string) throws EuroParseException
 	{
@@ -127,16 +128,6 @@ public class Euro implements Numeraire
 	@Override
 	public int hashCode()
 	{
-		return Objects.hash(euroSign.asChar(), cents);
-	}
-
-	private final static class EuroSign
-	{
-		final static char sign = '€';
-
-		public char asChar()
-		{
-			return sign;
-		}
+		return Objects.hash(euroSign.asString(), cents);
 	}
 }
