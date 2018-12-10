@@ -6,7 +6,7 @@ import louchtch.expensito.model.time.TimeMoment;
 public class SingleItemExpense implements Expense
 {
 	private Numeraire cost;
-	private ExpenseDescription description;
+	private SimpleExpenseDescription description;
 
 	private TimeMoment happenedOn;
 
@@ -15,7 +15,7 @@ public class SingleItemExpense implements Expense
 		return cost;
 	}
 
-	public ExpenseDescription description()
+	public SimpleExpenseDescription description()
 	{
 		return description;
 	}

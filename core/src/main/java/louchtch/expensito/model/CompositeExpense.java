@@ -8,10 +8,10 @@ import java.util.Set;
 public class CompositeExpense implements Expense
 {
 	private Set<Expense> expenses;
-	private ExpenseDescription description;
+	private SimpleExpenseDescription description;
 	private final TimeMoment happenedOn;
 
-	public CompositeExpense(Set<Expense> expenses, ExpenseDescription description, TimeMoment happenedOn)
+	public CompositeExpense(Set<Expense> expenses, SimpleExpenseDescription description, TimeMoment happenedOn)
 	{
 		this.expenses = expenses;
 		this.description = description;
@@ -29,7 +29,7 @@ public class CompositeExpense implements Expense
 	}
 
 	@Override
-	public ExpenseDescription description()
+	public SimpleExpenseDescription description()
 	{
 		return description;
 	}

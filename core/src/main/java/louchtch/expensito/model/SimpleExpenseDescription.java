@@ -3,12 +3,12 @@ package louchtch.expensito.model;
 import java.util.Collections;
 import java.util.Set;
 
-public class ExpenseDescription
+public class SimpleExpenseDescription implements Expense.Description
 {
 	private String text;
 	private Set<Tag> tagSet;
 
-	private ExpenseDescription(String text, Set<Tag> tagSet)
+	private SimpleExpenseDescription(String text, Set<Tag> tagSet)
 	{
 		this.text = text;
 		this.tagSet = tagSet;
