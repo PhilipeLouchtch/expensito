@@ -1,4 +1,4 @@
-package louchtch.expensito.model.expense;
+package louchtch.expensito.model.receipt;
 
 public interface ReceiptItem
 {
