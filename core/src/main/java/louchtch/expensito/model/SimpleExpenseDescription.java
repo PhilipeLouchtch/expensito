@@ -1,6 +1,6 @@
 package louchtch.expensito.model;
 
-import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 public class SimpleExpenseDescription implements Expense.Description
@@ -21,7 +21,7 @@ public class SimpleExpenseDescription implements Expense.Description
 
 	public Set<Tag> tags()
 	{
-		return Collections.unmodifiableSet(tagSet);
+		return new HashSet<>(tagSet);
 	}
 
 	public void attachTag(Tag tag)
