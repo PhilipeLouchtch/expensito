@@ -1,6 +1,6 @@
 package louchtch.expensito.model.expense;
 
-import louchtch.expensito.model.money.Numeraire;
+import louchtch.money.Numeraire;
 
 import java.util.Set;
 

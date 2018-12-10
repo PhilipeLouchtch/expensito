@@ -1,4 +1,4 @@
-package louchtch.expensito.model.time;
+package louchtch.time;
 
 public interface TimeMoment extends Comparable<TimeMoment>
 {

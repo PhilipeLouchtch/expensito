@@ -1,4 +1,4 @@
-package louchtch.expensito.model.time;
+package louchtch.time;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;

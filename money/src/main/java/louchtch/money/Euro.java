@@ -1,6 +1,6 @@
-package louchtch.expensito.model.money;
+package louchtch.money;
 
-import louchtch.expensito.model.money.model.EuroSign;
+import louchtch.money.model.EuroSign;
 import louchtch.util.NotImplementedException;
 import net.coolicer.assertion.Assert;
 

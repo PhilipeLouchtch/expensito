@@ -1,4 +1,4 @@
-package louchtch.expensito.model.money.model;
+package louchtch.money.model;
 
 public interface NumeraireSign
 {

@@ -1,4 +1,4 @@
-package louchtch.expensito.model.money;
+package louchtch.money;
 
 class EuroParseException extends Exception
 {

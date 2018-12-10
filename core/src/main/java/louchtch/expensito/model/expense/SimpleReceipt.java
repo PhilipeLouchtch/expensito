@@ -1,11 +1,7 @@
 package louchtch.expensito.model.expense;
 
-import louchtch.expensito.model.Expense;
-import louchtch.expensito.model.SimpleExpenseDescription;
-import louchtch.expensito.model.money.Numeraire;
-import louchtch.expensito.model.time.TimeMoment;
-
-import java.util.Set;
+import louchtch.money.Numeraire;
+import louchtch.time.time.TimeMoment;
 
 public class SimpleReceipt implements Receipt
 {

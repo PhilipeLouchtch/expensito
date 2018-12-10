@@ -1,7 +1,7 @@
 package louchtch.expensito.model;
 
-import louchtch.expensito.model.money.Numeraire;
-import louchtch.expensito.model.time.TimeMoment;
+import louchtch.money.Numeraire;
+import louchtch.time.time.TimeMoment;
 
 import java.util.Set;
 
